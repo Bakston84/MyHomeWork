@@ -14,7 +14,7 @@ int InputInt(string message)
 
 bool ValidateNumberRank2(int number)
 {
-    if (number > 99 && number < 10000)
+    if (number > 99 && number < 1000)
     {
         return true;
     }

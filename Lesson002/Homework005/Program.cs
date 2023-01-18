@@ -7,7 +7,7 @@
 int InputInt(string message)
 {
     System.Console.Write(message + " > ");
-    string inputValue = System.Console.ReadLine();
+    string? inputValue = System.Console.ReadLine();
     int result = Convert.ToInt32(inputValue);
     return result;
 }

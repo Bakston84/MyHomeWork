@@ -4,17 +4,17 @@
 //  12821 -> да
 //  23432 -> да
 
-string InputString(string message)
+int InputInt(string message)
 {
     System.Console.Write(message + " > ");
     string? inputValue = System.Console.ReadLine();
-    return inputValue;
+    int result = Convert.ToInt32(inputValue);
+    return result;
 }
 
-bool ValidateNumber(string number)
+bool ValidateNumber(int number)
 {
-    int rank = number.Length;
-    if (rank == 5)
+    if (number >= 10000 && number <= 99999)
     {
         return true;
     }
@@ -22,18 +22,16 @@ bool ValidateNumber(string number)
     return false;
 }
 
-string number = InputString("Введите пятизначное число");
+int number = InputInt("Введите пятизначное число");
 if (ValidateNumber(number))
 {
-    char[] revNumber = number.ToCharArray();
-    Array.Reverse(revNumber);
-    string finalNumber = new String(revNumber);
-    if (number == finalNumber)
-    {
-        System.Console.WriteLine($"Число {number} является палиндромом");
-    }
-    else
-    {
-        System.Console.WriteLine($"Число {number} не является палиндромом");
-    }
+    
+    // if (number == finalNumber)
+    // {
+    //     System.Console.WriteLine($"Число {number} является палиндромом");
+    // }
+    // else
+    // {
+    //     System.Console.WriteLine($"Число {number} не является палиндромом");
+    // }
 }

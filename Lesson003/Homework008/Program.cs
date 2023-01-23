@@ -22,16 +22,26 @@ bool ValidateNumber(int number)
     return false;
 }
 
+int ReversNumber(int number)
+{
+    int reversed = 0;
+    while (number > 0)
+    {
+        reversed = reversed * 10 + number % 10;
+        number /= 10;
+    }
+    return reversed;
+}
+
 int number = InputInt("Введите пятизначное число");
 if (ValidateNumber(number))
 {
-    
-    // if (number == finalNumber)
-    // {
-    //     System.Console.WriteLine($"Число {number} является палиндромом");
-    // }
-    // else
-    // {
-    //     System.Console.WriteLine($"Число {number} не является палиндромом");
-    // }
+    if (number == ReversNumber(number))
+    {
+        System.Console.WriteLine($"Число {number} является палиндромом");
+    }
+    else
+    {
+        System.Console.WriteLine($"Число {number} не является палиндромом");
+    }
 }

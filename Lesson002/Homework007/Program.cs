@@ -18,7 +18,7 @@ bool ValidateNumberWeek(int number)
     {
         return true;
     }
-    System.Console.WriteLine($"Число {number} не является обозначением дня недели");
+    Console.WriteLine($"Число {number} не является обозначением дня недели");
     return false;
 }
 string[] weeks = new string [7]{"понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"};

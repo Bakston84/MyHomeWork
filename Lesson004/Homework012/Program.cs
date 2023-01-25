@@ -19,7 +19,7 @@ int SumDigitsNumber(int number)
 
     int size = 0;
     int index = number;
-    while (index > 0)
+    while (index > 0)   //определяем размер числа
     {
         index = index / 10;
         size++;
@@ -27,7 +27,7 @@ int SumDigitsNumber(int number)
 
     int result = 0;
     int sum = 0;
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)  //суммируем цивры в числе
     {
         result = number % 10;
         sum = sum + result;

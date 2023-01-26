@@ -16,7 +16,7 @@ int InputInt(string message)    //вводим необходимые данны
 }
 
 void SumDigitsNumber()     //функция суммирования цифер в числе
-{   
+{
     int index = number;     //переменная для вывода в консольную строку.
     int size = 0;           //переменная для фиксации размера числа (кол-во цифер в числе)
     int result = 0;
@@ -25,6 +25,8 @@ void SumDigitsNumber()     //функция суммирования цифер 
     if (number <= 9)
     {
         sum = number;
+        System.Console.WriteLine($"Сумма цифер числа {index} равна: {sum}");
+        return;
     }
 
     while (number > 0)   //определяем размер числа

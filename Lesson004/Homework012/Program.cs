@@ -4,6 +4,9 @@
 //  82 -> 10
 //  9012 -> 12
 
+int number = InputInt("Введите число");
+SumDigitsNumber();
+
 int InputInt(string message)    //вводим необходимые данные
 {
     System.Console.Write(message + " > ");
@@ -12,17 +15,20 @@ int InputInt(string message)    //вводим необходимые данны
     return result;
 }
 
-int SumDigitsNumber(int number)     //функция суммирования цифер в числе
-{
-    if (number <= 9)
-        return number;
-    int index = number;
-    int size = 0;
+void SumDigitsNumber()     //функция суммирования цифер в числе
+{   
+    int index = number;     //переменная для вывода в консольную строку.
+    int size = 0;           //переменная для фиксации размера числа (кол-во цифер в числе)
     int result = 0;
     int sum = 0;
-    while (index > 0)   //определяем размер числа
+
+    if (number <= 9)
     {
-        index = index / 10;
+        sum = number;
+    }
+
+    while (number > 0)   //определяем размер числа
+    {
         for (int i = 0; i < size; i++)  //суммируем цифры в числе
         {
             result = number % 10;
@@ -31,8 +37,5 @@ int SumDigitsNumber(int number)     //функция суммирования ц
         }
         size++;
     }
-    return sum;
+    System.Console.WriteLine($"Сумма цифер числа {index} равна: {sum}");
 }
-
-int number = InputInt("Введите число");
-System.Console.WriteLine($"Сумма цифер числа {number} = {SumDigitsNumber(number)}");

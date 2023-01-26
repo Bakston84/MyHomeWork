@@ -4,7 +4,7 @@
 //  82 -> 10
 //  9012 -> 12
 
-int InputInt(string message)
+int InputInt(string message)    //вводим необходимые данные
 {
     System.Console.Write(message + " > ");
     string? inputValue = System.Console.ReadLine();
@@ -12,7 +12,7 @@ int InputInt(string message)
     return result;
 }
 
-int SumDigitsNumber(int number)
+int SumDigitsNumber(int number)     //функция суммирования цифер в числе
 {
     if (number <= 9)
         return number;

@@ -16,22 +16,20 @@ int SumDigitsNumber(int number)
 {
     if (number <= 9)
         return number;
-
-    int size = 0;
     int index = number;
+    int size = 0;
+    int result = 0;
+    int sum = 0;
     while (index > 0)   //определяем размер числа
     {
         index = index / 10;
+        for (int i = 0; i < size; i++)  //суммируем цифры в числе
+        {
+            result = number % 10;
+            sum += result;
+            number /= 10;
+        }
         size++;
-    }
-
-    int result = 0;
-    int sum = 0;
-    for (int i = 0; i < size; i++)  //суммируем цифры в числе
-    {
-        result = number % 10;
-        sum = sum + result;
-        number /= 10;
     }
     return sum;
 }

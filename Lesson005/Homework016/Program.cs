@@ -16,25 +16,6 @@ double[] CreatArray()
     return array;
 }
 
-// double[] MaxArray ()
-// {
-
-
-// }
-
-// double[] MinArray ()
-// {
-//     double min = min.MinValue;
-//     foreach (int item in array)
-//     {
-//         if (item < min)
-//         {
-//             min = item;
-//         }
-//     }
-//     return min;
-// }
-
 void PrintArray(double[] array)    //выводим результат массива
 {
     System.Console.Write("В массиве [");

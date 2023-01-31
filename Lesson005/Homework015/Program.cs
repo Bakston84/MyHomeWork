@@ -20,10 +20,9 @@ int[] CreatArray(int size)      //создаём массив генератор
 
 int Sum(int sum)
 {
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i += 2)
     {
-        if (i % 2 != 0)
-            sum = sum + array[i];
+        sum = sum + array[i];
     }
     return sum;
 }

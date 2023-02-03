@@ -30,7 +30,7 @@ int SecondMax(int[] array)    //находим второй максимум
     return secondMax;
 }
 
-int SecondMin(int[] array)    //находим второй максимум
+int SecondMin(int[] array)    //находим второй минимум
 {
     int secondMin = array[0];
     int firstMin = array[0];

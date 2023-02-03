@@ -13,62 +13,36 @@ int[] CreateArray()      //создаём массив генератором с
     return array;
 }
 
-int FirstMax(int[] array, int firstMax)
+int SecondMax(int[] array)    //находим второй максимум
 {
-    bool trigger = true;
-    foreach (int item in array)
-    {
-        if (trigger)
-        {
-            firstMax = item;
-            trigger = false;
-        }
-        else
-        {
-            if (firstMax < item)
-                firstMax = item;
-        }
-    }
-    return firstMax;
-}
-
-int FirstMin(int[] array, int firstMin)
-{
-    bool trigger = true;
-    foreach (int item in array)
-    {
-        if (trigger)
-        {
-            firstMin = item;
-            trigger = false;
-        }
-        else
-        {
-            if (firstMin > item)
-                firstMin = item;
-        }
-    }
-    return firstMin;
-}
-
-int SecondMax(int[] array, int secondMax, int firstMax, int firstMin)    //находим второй максимум
-{
-    int firstMaxArray = FirstMax(array, firstMax);
-    secondMax = FirstMin(array, firstMin);
+    int secondMax = array[0];
+    int firstMax = array[0];
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i] > secondMax && array[i] != firstMaxArray) secondMax = array[i];
+        if (array[i] > firstMax)
+        {
+            secondMax = firstMax;
+            firstMax = array[i];
+        }
+        else if (array[i] > secondMax && array[i] < firstMax)
+        secondMax = array[i];
     }
     return secondMax;
 }
 
-int SecondMin(int[] array, int secondMin, int firstMax, int firstMin)    //находим второй минимум
+int SecondMin(int[] array)    //находим второй максимум
 {
-    int firstMinArray = FirstMin(array, firstMin);
-    secondMin = FirstMax(array, firstMax);
+    int secondMin = array[0];
+    int firstMin = array[0];
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i] < secondMin && array[i] != firstMinArray) secondMin = array[i];
+        if (array[i] < firstMin)
+        {
+            secondMin = firstMin;
+            firstMin = array[i];
+        }
+        else if (array[i] < secondMin && array[i] > firstMin)
+        secondMin = array[i];
     }
     return secondMin;
 }
@@ -86,10 +60,6 @@ void PrintArray(int[] array)    //выводим результат массив
 }
 
 int[] array = CreateArray();
-int firstMax = 0;
-int firstMin = 0;
-int secondMax = 0;
-int secondMin = 0;
 PrintArray(array);
-System.Console.Write($" второй максимум равен: {SecondMax(array, secondMax, firstMax, firstMin)},");
-System.Console.Write($" а второй минимум равен: {SecondMin(array, secondMin, firstMax, firstMin)}");
+System.Console.Write($" второй максимум равен: {SecondMax(array)},");
+System.Console.Write($" а второй минимум равен: {SecondMin(array)}");

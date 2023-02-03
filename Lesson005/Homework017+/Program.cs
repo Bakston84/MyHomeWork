@@ -1,67 +1,42 @@
-﻿//  Задайте найти в массиве второй максимум и минимум.
+﻿//  Найти в массиве второй максимум и минимум.
 //  Пример:
 //  [3 7 22 2 78] -> второй максимум 22, второй минимум 3
 
-int min = -99;
-int max = 99;
-int[] array = CreatArray(12);
-PrintArray(array);
-
-int[] CreatArray(int size)      //создаём массив генератором случайных чисел
+int[] CreateArray()      //создаём массив генератором случайных чисел
 {
-    int[] array = new int[size];
+    int[] array = new int[8];
     Random rnd = new Random();
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = rnd.Next(min, max);
+        array[i] = rnd.Next(-99, 99);
     }
     return array;
 }
 
-int SecondMax(int secondMax)    //находим второй максимум
+int SecondMax(int[] array, int secondMax)    //находим второй максимум
 {
     int firstMaxArray = array.Max();
-    secondMax = 0;
-    int[] secondArray = new int[array.Length];
-    for (int i = 0; i < secondArray.Length; i++)
+    secondMax = array.Min();
+    for (int i = 0; i < array.Length; i++)
     {
-        if (array[i] == firstMaxArray)
-        {
-            secondArray[i] = min;
-        }
-        else
-        {
-            secondArray[i] = array[i];
-        }
+        if (array[i] > secondMax && array[i] != firstMaxArray) secondMax = array[i];
     }
-    secondMax = secondArray.Max();
     return secondMax;
 }
 
-int SecondMin(int secondMin)    //находим второй минимум
+int SecondMin(int[] array, int secondMin)    //находим второй минимум
 {
     int firstMinArray = array.Min();
-    secondMin = 0;
-    int[] secondArray = new int[array.Length];
-    for (int i = 0; i < secondArray.Length; i++)
+    secondMin = array.Max();
+    for (int i = 0; i < array.Length; i++)
     {
-        if (array[i] == firstMinArray)
-        {
-            secondArray[i] = max;
-        }
-        else
-        {
-            secondArray[i] = array[i];
-        }
+        if (array[i] < secondMin && array[i] != firstMinArray) secondMin = array[i];
     }
-    secondMin = secondArray.Min();
     return secondMin;
 }
 
 void PrintArray(int[] array)    //выводим результат массива
 {
-    int secondMax = 0;
-    int secondMin = 0;
     System.Console.Write("В массиве [");
     for (int i = 0; i < array.Length; i++)
     {
@@ -69,7 +44,12 @@ void PrintArray(int[] array)    //выводим результат массив
         if (i != array.Length - 1)
             System.Console.Write(", ");
     }
-    secondMax = SecondMax(secondMax);
-    secondMin = SecondMin(secondMin);
-    System.Console.WriteLine($"] второй максимум равен: {secondMax}, а второй минимум равен: {secondMin}");
+    System.Console.Write($"]");
 }
+
+int[] array = CreateArray();
+int secondMax = 0;
+int secondMin = 0;
+PrintArray(array);
+System.Console.Write($" второй максимум равен: {SecondMax(array, secondMax)},");
+System.Console.Write($" а второй минимум равен: {SecondMin(array, secondMin)}");

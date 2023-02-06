@@ -49,7 +49,6 @@ void InputPosition(double[,] array, int positionX, int positionY)
     {
         SearchPosition(array, positionX, positionY);
     }
-
 }
 
 void SearchPosition(double[,] array, int positionX, int positionY)

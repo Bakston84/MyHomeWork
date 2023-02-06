@@ -44,7 +44,6 @@ void ArithmeticMeanColumns(int[,] array)
 }
 
 int[,] array = new int[4, 4];
-double result = 0;
 CreateArray(array);
 PrintArray(array);
 ArithmeticMeanColumns(array);

@@ -36,19 +36,16 @@ void PrintArray(double[,] array)
     }
 }
 
-void InputPosition(double[,] array, int positionX, int positionY)
+void InputPosition(double[,] array)
 {
-    positionX = InputInt("Введите номер строки массива");
-    positionY = InputInt("Введите номер столбца массива");
+    int positionX = InputInt("Введите номер строки массива");
+    int positionY = InputInt("Введите номер столбца массива");
     if (positionX > array.GetLength(0) || positionY > array.GetLength(1))
     {
         System.Console.WriteLine($"Такой позиции массива ({positionX};{positionY}) не существует. Попробуйте ввести другие параметры");
-        InputPosition(array, positionX, positionY);
+        InputPosition(array);
     }
-    else
-    {
-        SearchPosition(array, positionX, positionY);
-    }
+    else SearchPosition(array, positionX, positionY);
 }
 
 void SearchPosition(double[,] array, int positionX, int positionY)
@@ -64,9 +61,7 @@ void SearchPosition(double[,] array, int positionX, int positionY)
     System.Console.WriteLine($"Элемент в позиции массива ({positionX};{positionY}), равен: {result:F2}");
 }
 
-int positionX = 0;
-int positionY = 0;
 double[,] array = new double[3, 4];
 CreateArray(array);
 PrintArray(array);
-InputPosition(array, positionX, positionY);
+InputPosition(array);

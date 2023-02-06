@@ -5,6 +5,12 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
+int InputInt(string position)
+{
+    System.Console.Write($"{position} > ");
+    return Convert.ToInt32(Console.ReadLine());
+}
+
 void CreateArray(double[,] array)
 {
     Random rnd = new Random();
@@ -29,6 +35,8 @@ void PrintArray(double[,] array)
     }
 }
 
-double[,] array = new double[3, 4];
+int rows = InputInt($"Введите количество строк массива");
+int col = InputInt($"Введите количество столбцов массива");
+double[,] array = new double[rows, col];
 CreateArray(array);
 PrintArray(array);

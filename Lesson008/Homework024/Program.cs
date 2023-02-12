@@ -31,7 +31,7 @@ void PrintArray(int[,] array)
     System.Console.WriteLine();
 }
 
-void ResultSummArray(int[,] array, int result)
+int ResultSummArray(int[,] array, int result)
 {
     int[] tempArray = new int[array.GetLength(0)];
     for (int i = 0; i < array.GetLength(0); i++) //строка
@@ -48,11 +48,12 @@ void ResultSummArray(int[,] array, int result)
         if (tempArray[i] == tempArray.Min())
             result = i + 1;
     }
-    System.Console.WriteLine($"{result} строка с наименьшей суммой элиментов.");
+    return result;
 }
 
 int[,] array = new int[4, 4];
 int result = 0;
 CreateArray(array);
 PrintArray(array);
-ResultSummArray(array, result);
+result = ResultSummArray(array, result);
+System.Console.WriteLine($"{result} строка с наименьшей суммой элиментов.");

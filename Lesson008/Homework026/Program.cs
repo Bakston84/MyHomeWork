@@ -49,6 +49,6 @@ void PrintArray(int[,] array)
     System.Console.WriteLine();
 }
 
-int[,] array = new int[7, 7];
+int[,] array = new int[6, 6];
 CreateSpiralArray(array);
 PrintArray(array);
